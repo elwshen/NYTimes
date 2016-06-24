@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.eshen.nytimessearch.activities.FilterActivity"
+    tools:showIn="@layout/activity_filter">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Date"
+        android:id="@+id/btnSetDate"
+        android:textSize="10sp"
+        android:onClick="showDatePickerDialog"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvDate"
+        android:layout_alignRight="@+id/radioGroup"
+        android:layout_alignEnd="@+id/radioGroup"
+        android:layout_alignBottom="@+id/cbArts" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGroup"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Newest"
+            android:id="@+id/rbNewest"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Oldest"
+            android:id="@+id/rbOldest"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Arts"
+        android:onClick="onCheckBoxClicked"
+        android:id="@+id/cbArts"
+        android:checked="false"
+        android:layout_gravity="right"
+        android:layout_below="@+id/cbEditorial"
+        android:layout_alignRight="@+id/cbEditorial"
+        android:layout_alignEnd="@+id/cbEditorial" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editorial"
+        android:onClick="onCheckBoxClicked"
+        android:id="@+id/cbEditorial"
+        android:layout_gravity="right"
+        android:checked="false"
+        android:layout_below="@+id/cbSports"
+        android:layout_alignRight="@+id/cbSports"
+        android:layout_alignEnd="@+id/cbSports" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sports"
+        android:id="@+id/cbSports"
+        android:onClick="onCheckBoxClicked"
+        android:layout_gravity="right"
+        android:checked="false"
+        android:layout_below="@+id/radioGroup"
+        android:layout_alignRight="@+id/cbWorld"
+        android:layout_alignEnd="@+id/cbWorld" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="World"
+        android:id="@+id/cbWorld"
+        android:onClick="onCheckBoxClicked"
+        android:checked="false"
+        android:layout_gravity="right"
+        android:layout_below="@+id/cbUS"
+        android:layout_alignRight="@+id/cbUS"
+        android:layout_alignEnd="@+id/cbUS" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="U.S."
+        android:onClick="onCheckBoxClicked"
+        android:id="@+id/cbUS"
+        android:checked="false"
+        android:layout_gravity="right"
+        android:layout_alignTop="@+id/radioGroup"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dining"
+        android:onClick="onCheckBoxClicked"
+        android:id="@+id/cbDining"
+        android:layout_below="@+id/cbArts"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Politics"
+        android:onClick="onCheckBoxClicked"
+        android:id="@+id/cbPolitics"
+        android:checked="false"
+        android:layout_below="@+id/cbDining"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apply Filters"
+        android:id="@+id/btnSubmit"
+        android:onClick="onSubmit"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort by"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categories"
+        android:id="@+id/tvCategories"
+        android:layout_above="@+id/cbUS"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show me articles after"
+        android:id="@+id/tvDate"
+        android:layout_alignTop="@+id/cbEditorial"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>
