@@ -26,6 +26,8 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.TextHttpResponseHandler;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,7 +69,7 @@ public class SearchActivity extends AppCompatActivity {
                 //get the article to display
                 Article article = articles.get(position);
                 //pass in that article to intent
-                i.putExtra("article", article);
+                i.putExtra("article", Parcels.wrap(article));
                 i.putExtra("query", searchQuery);
                 //launch activity
                 startActivity(i);

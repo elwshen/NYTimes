@@ -15,6 +15,8 @@ import android.webkit.WebViewClient;
 import com.example.eshen.nytimessearch.Article;
 import com.example.eshen.nytimessearch.R;
 
+import org.parceler.Parcels;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -29,7 +31,7 @@ public class ArticleActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
-        Article article = (Article) getIntent().getSerializableExtra("article");
+        Article article = (Article) Parcels.unwrap(getIntent().getParcelableExtra("article"));
 
         wvArticle.setWebViewClient(new WebViewClient() {
             @Override

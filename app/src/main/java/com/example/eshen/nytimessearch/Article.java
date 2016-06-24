@@ -1,11 +1,12 @@
 package com.example.eshen.nytimessearch;
 
-import java.io.Serializable;
+import org.parceler.Parcel;
 
 /**
  * Created by eshen on 6/20/16.
  */
-public class Article implements Serializable{
+@Parcel
+public class Article {
     String webUrl;
     String headline;
 
@@ -22,6 +23,10 @@ public class Article implements Serializable{
     }
 
     String thumbnail;
+
+    public Article() {
+
+    }
 
     public Article(String webUrl, String headline, String thumbnail) {
         this.webUrl = webUrl;
