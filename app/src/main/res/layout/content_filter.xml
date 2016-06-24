@@ -140,7 +140,7 @@
         android:text="Apply Filters"
         android:id="@+id/btnSubmit"
         android:onClick="onSubmit"
-        android:layout_centerVertical="true"
+        android:layout_alignTop="@+id/cbPolitics"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

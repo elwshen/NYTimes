@@ -16,6 +16,7 @@ import com.example.eshen.nytimessearch.R;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class FilterActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
@@ -25,19 +26,19 @@ public class FilterActivity extends AppCompatActivity implements DatePickerDialo
 
     @BindView(R.id.rbNewest) RadioButton rbNewest;
     @BindView(R.id.rbOldest) RadioButton rbOldest;
-    @BindView(R.id.cbArts) RadioButton cbArts;
-    @BindView(R.id.cbPolitics) RadioButton cbPolitics;
-    @BindView(R.id.cbUS) RadioButton cbUS;
-    @BindView(R.id.cbWorld) RadioButton cbWorld;
-    @BindView(R.id.cbDining) RadioButton cbDining;
-    @BindView(R.id.cbEditorial) RadioButton cbEditorial;
-    @BindView(R.id.cbSports) RadioButton cbSports;
+    @BindView(R.id.cbArts) CheckBox cbArts;
+    @BindView(R.id.cbPolitics) CheckBox cbPolitics;
+    @BindView(R.id.cbUS) CheckBox cbUS;
+    @BindView(R.id.cbWorld) CheckBox cbWorld;
+    @BindView(R.id.cbDining) CheckBox cbDining;
+    @BindView(R.id.cbEditorial) CheckBox cbEditorial;
+    @BindView(R.id.cbSports) CheckBox cbSports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
-//        ButterKnife.bind(this);
+        ButterKnife.bind(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -50,6 +51,7 @@ public class FilterActivity extends AppCompatActivity implements DatePickerDialo
             rbOldest.setChecked(true);
         }
         newsdeskFields = getIntent().getStringArrayListExtra("fields");
+
 
         if (newsdeskFields.contains("Arts")) {
             cbArts.setChecked(true);
