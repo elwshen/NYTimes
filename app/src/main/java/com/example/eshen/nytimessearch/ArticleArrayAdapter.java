@@ -43,7 +43,7 @@ public class ArticleArrayAdapter extends ArrayAdapter<Article> {
             Glide.with(getContext()).load(thumbnail).placeholder(R.drawable.article_placeholder).into(imageView);
         }
         else {
-            Glide.with(getContext()).load(R.drawable.article_placeholder).into(imageView);
+            Glide.with(getContext()).load(R.drawable.ic_article_placeholder).into(imageView);
         }
 
         return convertView;

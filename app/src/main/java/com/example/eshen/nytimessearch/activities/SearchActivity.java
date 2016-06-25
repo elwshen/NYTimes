@@ -89,13 +89,13 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     public void fetchMoreData(int offset) {
-        Log.d("DEBUG", String.valueOf(beginDate));
 
         AsyncHttpClient client = new AsyncHttpClient();
         String url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 
         RequestParams params = new RequestParams();
-        params.put("api-key", "7e272e359d554326902a565b5f58e5f3");
+        params.put("api-key", "cdef9959080a446cb6a497733e0eebaa");
+
         params.put("page", offset);
         params.put("q", searchQuery);
 
@@ -119,7 +119,6 @@ public class SearchActivity extends AppCompatActivity {
             }
             fieldsParam += ")";
             params.put("fq", fieldsParam);
-            Log.d("DEBUG", fieldsParam);
         }
 
         client.get(url, params, new TextHttpResponseHandler() {
@@ -129,8 +128,7 @@ public class SearchActivity extends AppCompatActivity {
             Gson gson = new GsonBuilder().create();
         // Define Response class to correspond to the JSON response returned
             NytSearch nytsearch = gson.fromJson(responseString, NytSearch.class);
-//                    NytSearch nytsearch = gson.getfromjson(response.toString(),NytSearch.class)
-        ArrayList<Doc> docs = (ArrayList<Doc>) nytsearch.getResponse().getDocs();
+            ArrayList<Doc> docs = (ArrayList<Doc>) nytsearch.getResponse().getDocs();
             for (Doc d: docs) {
                 String webUrl = d.getWebUrl();
                 String headline = d.getHeadline().getMain();
@@ -149,28 +147,6 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-
-//        client.get(url, params, new JsonHttpResponseHandler() {
-//            @Override
-//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-//                Log.d("DEBUG", response.toString());
-//                JSONArray articleJsonResults = null;
-//
-//                try {
-//
-//                    articleJsonResults = response.getJSONObject("response").getJSONArray("docs");
-//                    adapter.addAll(Article.fromJSONArray(articleJsonResults));
-//                    Log.d("DEBUG", articles.toString());
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-//                Log.d("DEBUG", errorResponse.toString());
-//            }
-//        });
     }
 
     @Override
@@ -226,10 +202,9 @@ public class SearchActivity extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == FILTER_REQUEST_CODE) {
-            int date = data.getExtras().getInt("date", 0);
             sortOrder = data.getExtras().getString("sortOrder");
             fields = data.getExtras().getStringArrayList("fields");
-            beginDate = date;
+            beginDate = data.getExtras().getInt("date", 0);;
             fetchMoreData(0);
         }
     }
